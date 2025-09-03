@@ -1,0 +1,23 @@
+{
+  "name": "@super-charged-workspace-demo/utils",
+  "version": "0.0.1",
+  "dependencies": {},
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "typings": "./dist/index.d.ts",
+  "private": true,
+  "nx": {
+    "sourceRoot": "libs/web/utils/src",
+    "projectType": "library",
+    "name": "utils"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts"
+}

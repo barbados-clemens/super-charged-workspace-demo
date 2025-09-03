@@ -1,0 +1,19 @@
+{
+  "name": "@super-charged-workspace-demo/design-system",
+  "nx": {
+    "name": "design-system",
+    "projectType": "library",
+    "sourceRoot": "libs/web/design-system/src"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "module": "./dist/index.mjs",
+  "main": "./dist/index.js"
+}

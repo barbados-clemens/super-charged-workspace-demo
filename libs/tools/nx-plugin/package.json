@@ -1,0 +1,43 @@
+{
+  "name": "@super-charged-workspace-demo/nx-plugin",
+  "version": "0.0.1",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "type": "commonjs",
+  "main": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "private": true,
+  "nx": {
+    "sourceRoot": "libs/tools/nx-plugin/src",
+    "projectType": "library",
+    "targets": {
+      "build": {
+        "executor": "@nx/js:tsc",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "options": {
+          "outputPath": "libs/tools/nx-plugin/dist",
+          "main": "libs/tools/nx-plugin/src/index.ts",
+          "tsConfig": "libs/tools/nx-plugin/tsconfig.lib.json",
+          "rootDir": "libs/tools/nx-plugin/src",
+          "generatePackageJson": false,
+          "assets": [
+            {
+              "input": "./libs/tools/nx-plugin/src",
+              "glob": "**/!(*.ts)",
+              "output": "."
+            },
+            {
+              "input": "./libs/tools/nx-plugin/src",
+              "glob": "**/*.d.ts",
+              "output": "."
+            }
+          ]
+        }
+      }
+    },
+    "name": "nx-plugin"
+  }
+}

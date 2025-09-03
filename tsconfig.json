@@ -20,6 +20,9 @@
     },
     {
       "path": "./libs/web/utils"
+    },
+    {
+      "path": "./libs/tools/nx-plugin"
     }
   ]
 }

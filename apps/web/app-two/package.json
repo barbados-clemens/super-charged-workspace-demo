@@ -1,0 +1,10 @@
+{
+  "name": "@super-charged-workspace-demo/app-two",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "name": "app-two",
+    "projectType": "application",
+    "sourceRoot": "apps/web/app-two/src"
+  }
+}

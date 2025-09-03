@@ -1,0 +1,12 @@
+{
+  "name": "app-two-e2e",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "projectType": "application",
+    "sourceRoot": "apps/web/app-two-e2e/src",
+    "implicitDependencies": [
+      "app-two"
+    ]
+  }
+}

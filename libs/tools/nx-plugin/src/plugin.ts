@@ -3,7 +3,10 @@ import {
   CreateNodesV2,
   ProjectConfiguration,
 } from '@nx/devkit';
-import { BddPlaywrightOptions, addPlaywrightToNode } from './playwright';
+import {
+  BddPlaywrightOptions,
+  addPlaywrightToNode,
+} from './add-playwright-nodes';
 import { dirname, join } from 'node:path';
 import { readdirSync } from 'node:fs';
 

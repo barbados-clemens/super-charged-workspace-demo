@@ -7,7 +7,6 @@ import {
   joinPathFragments,
   normalizePath,
   ProjectConfiguration,
-  ProjectGraphProjectNode,
   TargetConfiguration,
 } from '@nx/devkit';
 import { getNamedInputs } from '@nx/devkit/src/utils/get-named-inputs';
@@ -37,6 +36,7 @@ export async function addPlaywrightToNode(
   context: CreateNodesContextV2,
   currentNode: ProjectConfiguration
 ) {
+  console.log('debug>>>', configFilePath, options, context, currentNode);
   const siblingFiles = readdirSync(
     join(context.workspaceRoot, currentNode.root)
   );

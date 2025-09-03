@@ -6,7 +6,7 @@ import {
 import {
   BddPlaywrightOptions,
   addPlaywrightToNode,
-} from './add-playwright-nodes';
+} from './add-playwright-targets';
 import { dirname, join } from 'node:path';
 import { readdirSync } from 'node:fs';
 

@@ -1,5 +1,5 @@
 import { join } from 'node:path';
-import { addPlaywrightToNode } from './add-playwright-nodes';
+import { addPlaywrightToNode } from './add-playwright-targets';
 import { ProjectConfiguration, workspaceRoot } from '@nx/devkit';
 
 // TODO: probs use a FS mock or use fixtures for testing the plugins

@@ -2,7 +2,8 @@
   "name": "@super-charged-workspace-demo/nx-plugin",
   "version": "0.0.1",
   "dependencies": {
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "minimatch": "^10.0.3"
   },
   "type": "commonjs",
   "main": "./src/index.ts",

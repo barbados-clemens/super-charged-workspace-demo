@@ -43,15 +43,6 @@
       }
     },
     {
-      "plugin": "./libs/tools/nx-plugin"
-    },
-    {
-      "plugin": "@nx/playwright/plugin",
-      "options": {
-        "targetName": "e2e"
-      }
-    },
-    {
       "plugin": "@nx/storybook/plugin",
       "options": {
         "serveStorybookTargetName": "storybook",
@@ -59,6 +50,9 @@
         "testStorybookTargetName": "test-storybook",
         "staticStorybookTargetName": "static-storybook"
       }
+    },
+    {
+      "plugin": "./libs/tools/nx-plugin"
     }
   ],
   "targetDefaults": {

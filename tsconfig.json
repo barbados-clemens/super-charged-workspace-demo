@@ -23,6 +23,9 @@
     },
     {
       "path": "./libs/tools/nx-plugin"
+    },
+    {
+      "path": "./apps/mobile/demo-one"
     }
   ]
 }

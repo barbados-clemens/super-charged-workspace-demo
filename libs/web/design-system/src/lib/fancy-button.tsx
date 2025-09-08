@@ -1,11 +1,11 @@
 import styles from './design-system.module.css';
 
-export function DesignSystem() {
+export function FancyButton({ text }: { text: string }) {
   return (
     <div className={styles['container']}>
-      <h1>Welcome to DesignSystem!</h1>
+      <button>{text}</button>
     </div>
   );
 }
 
-export default DesignSystem;
+export default FancyButton;

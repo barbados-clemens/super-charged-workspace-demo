@@ -18,5 +18,9 @@
     "src/test-setup.ts"
   ],
   "include": ["**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"],
-  "references": []
+  "references": [
+    {
+      "path": "../../../libs/web/design-system/tsconfig.lib.json"
+    }
+  ]
 }

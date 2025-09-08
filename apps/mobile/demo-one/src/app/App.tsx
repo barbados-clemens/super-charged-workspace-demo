@@ -11,7 +11,7 @@ import {
   Linking,
 } from 'react-native';
 import Svg, { G, Path } from 'react-native-svg';
-
+import { FancyButton } from '@super-charged-workspace-demo/design-system';
 export const App = () => {
   const [whatsNextYCoord, setWhatsNextYCoord] = useState<number>(0);
   const scrollViewRef = useRef<null | ScrollView>(null);
@@ -39,6 +39,7 @@ export const App = () => {
               role="heading"
             >
               Welcome DemoOne 👋
+              <FancyButton text="blah" />
             </Text>
           </View>
           <View style={styles.section}>

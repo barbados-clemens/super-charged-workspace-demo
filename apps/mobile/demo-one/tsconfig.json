@@ -14,6 +14,9 @@
   "include": [],
   "references": [
     {
+      "path": "../../../libs/web/design-system"
+    },
+    {
       "path": "./tsconfig.app.json"
     }
   ]

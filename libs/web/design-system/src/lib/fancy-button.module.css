@@ -1,0 +1,13 @@
+/*
+ * Replace this with your own classes
+ *
+ * e.g.
+ * .container {
+ * }
+*/
+
+.container {
+  background-color: pink;
+  color: black;
+  padding: 1rem 0.5rem;
+}

@@ -2,6 +2,9 @@
   "name": "@super-charged-workspace-demo/demo-one",
   "version": "0.0.1",
   "private": true,
+  "dependencies": {
+    "@super-charged-workspace-demo/design-system": "workspace:*"
+  },
   "nx": {
     "name": "demo-one",
     "projectType": "application",

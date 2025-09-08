@@ -14,7 +14,7 @@
     "moduleResolution": "bundler"
   },
   "include": [
-    "vite.config.ts",
+    "vitest.config.ts",
     "vite.config.mts",
     "vitest.config.ts",
     "vitest.config.mts",

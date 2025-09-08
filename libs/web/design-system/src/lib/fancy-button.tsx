@@ -1,11 +1,4 @@
-import styles from './design-system.module.css';
-
+import { Button } from 'react-native';
 export function FancyButton({ text }: { text: string }) {
-  return (
-    <div className={styles['container']}>
-      <button>{text}</button>
-    </div>
-  );
+  return <Button title={'fancy ' + text} />;
 }
-
-export default FancyButton;

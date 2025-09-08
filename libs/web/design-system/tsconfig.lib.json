@@ -23,7 +23,7 @@
     "**/*.test.js",
     "**/*.spec.jsx",
     "**/*.test.jsx",
-    "vite.config.ts",
+    "vitest.config.ts",
     "vite.config.mts",
     "vitest.config.ts",
     "vitest.config.mts",

@@ -32,6 +32,7 @@ export const App = () => {
           style={styles.scrollView}
         >
           <View style={styles.section}>
+            <FancyButton text="blah" />
             <Text style={styles.textLg}>Hello there,</Text>
             <Text
               style={[styles.textXL, styles.appTitleText]}
@@ -39,7 +40,6 @@ export const App = () => {
               role="heading"
             >
               Welcome DemoOne 👋
-              <FancyButton text="blah" />
             </Text>
           </View>
           <View style={styles.section}>

@@ -2,6 +2,7 @@ import { CreateNodesContextV2, ProjectConfiguration } from '@nx/devkit';
 import { readdirSync } from 'node:fs';
 import { dirname, join, basename } from 'node:path';
 
+// TODO: add extra logic to tag with `type` for projects. i.e. feature/ui/utils/etc
 export function addTagsToNode(
   configFilePath: string,
   // could send in a config that will determine how to map project names or those to exclude etc
@@ -21,7 +22,8 @@ export function addTagsToNode(
   // apps/mobile/<some-app-name>
   // libs/web/<some-lib-name>
   const parentDir = dirname(currentNode.root);
-  const scope = basename(parentDir);
+  // map root project to 'root' to prevent a weird scope name of 'scope:.'
+  const scope = parentDir === '.' ? 'root' : basename(parentDir);
 
   currentNode.tags.push(`scope:${scope.toLowerCase()}`);
 }

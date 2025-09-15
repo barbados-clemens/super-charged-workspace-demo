@@ -18,12 +18,15 @@ Using workspaces requires you to configure the correct exports for the imported 
 
 
 ## Conformance
+> Note a powerpack license is needed to run
 
 We can use conformance to enforce project structure and configurations (along with whatever else needed)
 There is a sample rule setup here: [`libs/tools/nx-plugin/src/conformance/`](./libs/tools/nx-plugin/src/conformance/)
 
 Make a new rule with `nx g create-rule`
 Some more examples of rules can be to enforce project-references are being respected and tsconfigs are not malformed
+
+Run conformance checks w/ `nx conformance`
 
 ## Module Boundaries
 

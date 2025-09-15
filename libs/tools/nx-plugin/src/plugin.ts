@@ -9,9 +9,11 @@ import {
 } from './add-playwright-targets';
 import { dirname, join } from 'node:path';
 import { readdirSync } from 'node:fs';
+import { addTagsToNode } from './add-tags-to-nodes';
 
 export interface PluginOptions {
   playwright?: BddPlaywrightOptions;
+  tags?: unknown;
 }
 
 // we want to match all projects and use that
@@ -38,6 +40,8 @@ export const createNodesV2: CreateNodesV2<PluginOptions> = [
           targets: {},
           metadata: {},
         };
+
+        addTagsToNode(configFile, options?.['tags'], context, node);
 
         await addPlaywrightToNode(
           configFile,

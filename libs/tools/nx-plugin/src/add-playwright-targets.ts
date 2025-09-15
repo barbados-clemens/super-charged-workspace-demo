@@ -132,7 +132,7 @@ async function buildPlaywrightTargets(
       },
     };
 
-    const groupName: string = 'E2E (CI)';
+    const groupName = 'E2E (CI)';
     metadata = { targetGroups: { [groupName]: [] } };
 
     const ciTargetGroup = metadata.targetGroups![groupName];

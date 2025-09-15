@@ -22,12 +22,18 @@ module.exports = [
       '@nx/enforce-module-boundaries': [
         'error',
         {
+          // see api docs for all options:
+          // https://nx.dev/technologies/eslint/eslint-plugin/recipes/enforce-module-boundaries
           enforceBuildableLibDependency: true,
           allow: ['^.*/eslint(\\.base)?\\.config\\.[cm]?js$'],
           depConstraints: [
             {
-              sourceTag: '*',
-              onlyDependOnLibsWithTags: ['*'],
+              sourceTag: 'scope:web',
+              onlyDependOnLibsWithTags: ['scope:web', 'scope:shared'],
+            },
+            {
+              sourceTag: 'scope:mobile',
+              onlyDependOnLibsWithTags: ['scope:mobile', 'scope:shared'],
             },
           ],
         },

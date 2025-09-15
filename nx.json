@@ -96,5 +96,12 @@
         "unitTestRunner": "vitest"
       }
     }
+  },
+  "conformance": {
+    "rules": [
+      {
+        "rule": "./libs/tools/nx-plugin/src/conformance/project-config/index.ts"
+      }
+    ]
   }
 }

@@ -2,7 +2,26 @@
   "name": "@super-charged-workspace-demo/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "blah:something": "nx affected -t build"
+  },
+  "nx": {
+    "//": "this is just testing the confomance rule, not actual used",
+    "targets": {
+      "another": {
+        "command": "nx run-many -t abc"
+      },
+      "bothss": {
+        "executor": "nx:run-commands",
+        "options": {
+          "commands": [
+            "nx run another",
+            "nx run blah"
+          ]
+        }
+      }
+    }
+  },
   "private": true,
   "devDependencies": {
     "@babel/core": "^7.14.5",
@@ -19,6 +38,8 @@
     "@nx/js": "20.2.0",
     "@nx/playwright": "20.2.0",
     "@nx/plugin": "20.2.0",
+    "@nx/powerpack-conformance": "^3.1.1",
+    "@nx/powerpack-license": "^3.1.1",
     "@nx/react": "20.2.0",
     "@nx/storybook": "20.2.0",
     "@nx/vite": "20.2.0",

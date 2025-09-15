@@ -1,0 +1,8 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "$id": "tagged-projects",
+  "title": "tagged-projects rule configuration",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

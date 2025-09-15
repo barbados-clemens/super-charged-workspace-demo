@@ -1,1 +1,1 @@
-export { createNodesV2 } from './plugin';
+export { createNodesV2 } from './plugin/plugin';

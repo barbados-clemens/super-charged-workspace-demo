@@ -3,24 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "blah:something": "nx affected -t build"
+    "affected:build": "nx affected -t build"
   },
   "nx": {
-    "//": "this is just testing the confomance rule, not actual used",
-    "targets": {
-      "another": {
-        "command": "nx run-many -t abc"
-      },
-      "bothss": {
-        "executor": "nx:run-commands",
-        "options": {
-          "commands": [
-            "nx run another",
-            "nx run blah"
-          ]
-        }
-      }
-    }
+    "targets": {}
   },
   "private": true,
   "devDependencies": {

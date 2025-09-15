@@ -5,7 +5,11 @@
     "types": ["node", "vite/client"],
     "rootDir": "src",
     "module": "esnext",
-    "moduleResolution": "bundler"
+    "moduleResolution": "bundler",
+    "paths": {
+      "~utils/*": ["../../web/utils/src/*"],
+      "~/*": ["./src/*"]
+    }
   },
   "exclude": [
     "dist",

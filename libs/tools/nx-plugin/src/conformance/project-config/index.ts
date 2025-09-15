@@ -1,5 +1,7 @@
 import { createConformanceRule, ConformanceViolation } from '@nx/conformance';
-import { TargetConfiguration } from '@nx/devkit';
+import { TargetConfiguration, workspaceRoot } from '@nx/devkit';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { join, relative, resolve as resolvePath } from 'node:path';
 
 export default createConformanceRule({
   name: 'ensure-project-config',
@@ -26,8 +28,6 @@ export default createConformanceRule({
         if (!projectConfig.targets) {
           continue;
         }
-
-        console.log(projectConfig.targets);
 
         const trivialTargets = Object.entries(projectConfig.targets).filter(
           ([targetName, targetConfig]) => isTrivialTarget(targetConfig)
@@ -73,11 +73,35 @@ export default createConformanceRule({
             });
           }
         }
+
+        const maybeTsConfigs = readdirSync(
+          join(workspaceRoot, projectConfig.root),
+          { withFileTypes: true }
+        ).filter(
+          (f) =>
+            f.isFile() &&
+            f.name.startsWith('tsconfig') &&
+            f.name.endsWith('.json')
+        );
+
+        for (const ts of maybeTsConfigs) {
+          // @ts-expect-error - parentPath exists since node v18: https://nodejs.org/api/fs.html#class-fsdirent
+          const tsPath = join(ts.parentPath, ts.name);
+
+          if (!isTsConfigValid(projectConfig.root, tsPath)) {
+            violations.push({
+              message: `TSConfig paths outside of project root. Use package.json#dependencies with project references for using other projects`,
+              // provide path from workspaceRoot for easier reading
+              file: relative(workspaceRoot, tsPath),
+              sourceProject: name,
+            });
+          }
+        }
       }
     }
 
     return {
-      severity: 'medium',
+      severity: 'high',
       details: {
         violations,
       },
@@ -126,5 +150,53 @@ function isTrivialTarget(targetConfig: TargetConfiguration) {
         )
       );
     }
+  }
+}
+
+function isTsConfigValid(projectRoot: string, tsConfigPath: string): boolean {
+  if (!existsSync(tsConfigPath)) {
+    console.warn(`Tsconfig does not exist at ${tsConfigPath}`);
+    return false;
+  }
+
+  const tsConfigContent = readFileSync(tsConfigPath, 'utf8');
+
+  try {
+    const tsConfig = JSON.parse(tsConfigContent);
+
+    const paths = tsConfig?.compilerOptions?.paths;
+    if (!paths) {
+      return true;
+    }
+
+    const pathMap = new Map<string, boolean>();
+    const fullProjectRoot = resolvePath(workspaceRoot, projectRoot);
+    const isValidPath = (p: string) => {
+      const fullPath = resolvePath(join(projectRoot, p));
+      const relFromRoot = relative(fullProjectRoot, fullPath);
+
+      // path is going up and out of the project root
+      return !relFromRoot.startsWith('../');
+    };
+    /**
+     *     "paths": {
+      "~utils/*": ["../../web/utils/src/*"],
+      "~/*": ["./src/*"]
+    }
+*/
+    for (const entry of Object.values(paths)) {
+      if (Array.isArray(entry)) {
+        // for each item check if it goes outside the projectRoot.
+        // if so then it's a bad tsconfig and should use project refs + pnpm workspace dep instead
+        entry.forEach((p) => {
+          pathMap.set(p, isValidPath(p));
+        });
+      }
+    }
+
+    return Array.from(pathMap.values()).every((p) => p);
+  } catch (e) {
+    console.warn(`Unable to check tsconfig at ${tsConfigPath}`);
+    return false;
   }
 }

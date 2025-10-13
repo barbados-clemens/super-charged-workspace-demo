@@ -16,13 +16,8 @@
     {
       "plugin": "@nx/js/typescript",
       "options": {
-        "typecheck": {
-          "targetName": "typecheck"
-        },
-        "build": {
-          "targetName": "build",
-          "configName": "tsconfig.lib.json"
-        }
+        "typecheck": { "targetName": "typecheck" },
+        "build": { "targetName": "build", "configName": "tsconfig.lib.json" }
       }
     },
     {
@@ -36,12 +31,7 @@
         "typecheckTargetName": "typecheck"
       }
     },
-    {
-      "plugin": "@nx/eslint/plugin",
-      "options": {
-        "targetName": "lint"
-      }
-    },
+    { "plugin": "@nx/eslint/plugin", "options": { "targetName": "lint" } },
     {
       "plugin": "@nx/storybook/plugin",
       "options": {
@@ -51,9 +41,7 @@
         "staticStorybookTargetName": "static-storybook"
       }
     },
-    {
-      "plugin": "./libs/tools/nx-plugin"
-    },
+    { "plugin": "./libs/tools/nx-plugin" },
     {
       "plugin": "@nx/expo/plugin",
       "options": {
@@ -70,9 +58,7 @@
     }
   ],
   "targetDefaults": {
-    "e2e-ci--**/*": {
-      "dependsOn": ["^build"]
-    },
+    "e2e-ci--**/*": { "dependsOn": ["^build"] },
     "@nx/js:tsc": {
       "cache": true,
       "dependsOn": ["^build"],
@@ -87,9 +73,7 @@
         "linter": "eslint",
         "bundler": "vite"
       },
-      "component": {
-        "style": "css"
-      },
+      "component": { "style": "css" },
       "library": {
         "style": "css",
         "linter": "eslint",
@@ -103,5 +87,7 @@
         "rule": "./libs/tools/nx-plugin/src/conformance/project-config/index.ts"
       }
     ]
-  }
+  },
+  "nxCloudId": "68ed00ec31559fea7e7936a0",
+  "nxCloudUrl": "https://staging.nx.app"
 }

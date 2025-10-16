@@ -51,7 +51,6 @@ export const createNodesV2: CreateNodesV2<PluginOptions> = [
         );
         // TODO: add more to each node per technology needed that isn't already covered by existing plugins
 
-        console.log('final node >>>>', node);
         return {
           projects: {
             [projectRoot]: node,

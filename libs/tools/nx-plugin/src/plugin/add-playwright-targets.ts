@@ -36,7 +36,6 @@ export async function addPlaywrightToNode(
   context: CreateNodesContextV2,
   currentNode: ProjectConfiguration
 ) {
-  console.log('debug>>>', configFilePath, options, context, currentNode);
   const siblingFiles = readdirSync(
     join(context.workspaceRoot, currentNode.root)
   );
@@ -167,15 +166,6 @@ async function buildPlaywrightTargets(
             `${relativeFeatureFilePath}.spec.js`
           )
         );
-
-        console.log({
-          featureFile,
-          testDir,
-          featureDir,
-          projectRoot,
-          relativeFeatureFilePath,
-          relativeSpecFilePath,
-        });
 
         const targetName = `${options.ciTargetName}--${relativeFeatureFilePath}`;
         ciTargetGroup.push(targetName);

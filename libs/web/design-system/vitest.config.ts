@@ -30,5 +30,6 @@ export default defineConfig({
       reportsDirectory: '../../../coverage/libs/web/design-system',
       provider: 'v8',
     },
+    passWithNoTests: true,
   },
 });

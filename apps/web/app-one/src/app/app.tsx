@@ -3,6 +3,7 @@
 import NxWelcome from './nx-welcome';
 
 export function App() {
+  let b: number = '2';
   return (
     <div>
       <NxWelcome title="app-one" />
